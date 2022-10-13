@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+class Box {
+    int l, b, h;
+public:
+    static int count;
+    Box() : l(0), b(0), h(0) { count++; }
+    Box(int length, int breadth, int height) : l(length), b(breadth), h(height) { count++; }
+    int getLength() const {return l;}
+    int getBreadth() const {return b;}
+    int getHeight() const {return h;}
+    long long CalculateVolume() const {
+        return 1LL * l * b * h;
+    }
+    bool operator<(const Box& another) const {
+        if (l != another.l) {
+            return l < another.l;
+        }
+        if (b != another.b) {
+            return b < another.b;
+        }
+        return h < another.h;
+    }
+};
+int Box::count = 0;
+int main(){
+    Box b1;
+    Box b2(5,8,3);
+    Box b3(6,3,8);
+    printf("Box 1: (length = %d, breadth = %d, width = %d)\n",b1.getLength(), b1.getBreadth(), b1.getHeight());
+    printf("Box 2: (length = %d, breadth = %d, width = %d)\n",b2.getLength(), b2.getBreadth(), b2.getHeight());
+    printf("Box 3: (length = %d, breadth = %d, width = %d)\n",b3.getLength(), b3.getBreadth(), b3.getHeight());
+    if(b3 < b2){
+        cout << "Box 3 is smaller, its volume: " << b3.CalculateVolume() << endl;
+    }else{
+        cout << "Box 3 is smaller, its volume: " << b2.CalculateVolume() << endl;
+    }
+    cout << "There are total " << Box::count << " box(es)";
+}
