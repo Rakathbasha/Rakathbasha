@@ -1,0 +1,18 @@
+#include <iostream>
+int main()
+{
+  int age;
+  cout<<"Enter the age of a person:";
+  cin>>age;
+  
+
+  
+  if (age<18)
+     {
+       cout<<"Sorry, You are not eligible to caste your vote.\n";
+       cout<<"You would be able to caste your vote after %d year.\n"<<18-age;
+     }
+  else
+     cout<<"Congratulation! You are eligible for casting your vote.\n";
+}
+
